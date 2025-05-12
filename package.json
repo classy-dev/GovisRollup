@@ -1,5 +1,5 @@
 {
-  "name": "my-component-lib",
+  "name": "gopizza-design-system",
   "version": "1.0.0",
   "description": "Component library built with Rollup",
   "main": "dist/index.js",
