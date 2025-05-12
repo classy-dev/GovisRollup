@@ -23,7 +23,13 @@ export default {
     peerDepsExternal(),
     resolve(),
     commonjs(),
-    typescript({ tsconfig: './tsconfig.json' }),
+    typescript({
+      tsconfig: './tsconfig.json',
+      declaration: true,
+      declarationDir: 'dist',
+      exclude: ['**/*.stories.tsx', '**/*.test.tsx', 'node_modules/**'],
+      outDir: 'dist'
+    }),
     terser(),
   ],
   external: ['react', 'react-dom', '@emotion/react', '@emotion/styled'],
