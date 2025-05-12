@@ -35,7 +35,7 @@ const SmallFade = styled.div`
   left: 2px;
 `;
 
-const Spinner = ({
+export const Spinner = ({
   variant = 'small',
   width,
   height,
@@ -134,8 +134,6 @@ const Spinner = ({
     </>
   );
 };
-
-export default Spinner;
 
 export const PageSpinnerWrap = styled.div`
   display: flex;

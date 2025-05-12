@@ -3,7 +3,9 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { theme } from '../../theme';
 import Cross from '../icons/Cross';
-import Spinner from '../Spinner/Spinner';
+import {Spinner} from '../Spinner/Spinner';
+
+
 
 type ButtonVariant =
   | 'primary'
@@ -228,16 +230,16 @@ export const Button: FC<ButtonProps> = ({
       disabled={disabled}
     >
       {Leading && (
-        <Leading {...LeadingIcon.props} customCss="margin-right: 0.4rem;" />
+        <Leading {...(LeadingIcon.props as ReactElement)} customCss="margin-right: 0.4rem;" />
       )}
       {!isLoading ? (
         <span className="txt">{children}</span>
       ) : (
         <Spinner color="white" />
       )}
-      {IconOnlyType && <IconOnlyType {...IconOnly.props} />}
+      {IconOnlyType && <IconOnlyType {...(IconOnly.props as ReactElement)} />}
       {Trailing && (
-        <Trailing {...TrailingIcon.props} customCss="margin-left: 0.4rem;" />
+        <Trailing {...(TrailingIcon.props as ReactElement)} customCss="margin-left: 0.4rem;" />
       )}
     </StyledButton>
   );
