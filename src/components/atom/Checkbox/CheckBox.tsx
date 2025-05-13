@@ -1,11 +1,11 @@
-import React from 'react';
-import { CheckBoxWrap, Label } from './style';
+import React from "react";
+import { CheckBoxWrap, Label } from "./style";
 
-export type CheckBoxSize = 'sm' | 'md';
+export type CheckBoxSize = "sm" | "md";
 
-export const sizes = {
-  sm: '1.6rem',
-  md: '2.4rem',
+export const CheckBoxSizes = {
+  sm: "1.6rem",
+  md: "2.4rem",
 };
 
 export interface CheckBoxProps {
@@ -23,15 +23,15 @@ export const CheckBox = ({
   value,
   checked,
   onChange,
-  chksize = 'md',
+  chksize = "md",
   readOnly,
   disabled,
   label,
   subText,
-}:CheckBoxProps) => {
+}: CheckBoxProps) => {
   return (
     <Label
-      className={subText ? 'label_checkbox contain_subtext' : 'label_checkbox'}
+      className={subText ? "label_checkbox contain_subtext" : "label_checkbox"}
       chksize={chksize}
     >
       <CheckBoxWrap
@@ -44,11 +44,10 @@ export const CheckBox = ({
         readOnly={readOnly}
         disabled={disabled}
       />
-      <span className={`txt_box ${chksize ?? ''}`}>
+      <span className={`txt_box ${chksize ?? ""}`}>
         <span className="title">{label}</span>
         <span className="sub-text">{subText}</span>
       </span>
     </Label>
   );
 };
-

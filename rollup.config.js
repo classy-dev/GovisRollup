@@ -1,21 +1,22 @@
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import typescript from '@rollup/plugin-typescript';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import { terser } from 'rollup-plugin-terser';
-import pkg from './package.json';
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import typescript from "@rollup/plugin-typescript";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import { terser } from "rollup-plugin-terser";
+import postcss from "rollup-plugin-postcss";
+import pkg from "./package.json";
 
 export default {
-  input: 'src/index.ts',
+  input: "src/index.ts",
   output: [
     {
       file: pkg.main,
-      format: 'cjs',
+      format: "cjs",
       sourcemap: true,
     },
     {
       file: pkg.module,
-      format: 'esm',
+      format: "esm",
       sourcemap: true,
     },
   ],
@@ -23,14 +24,20 @@ export default {
     peerDepsExternal(),
     resolve(),
     commonjs(),
+    postcss({
+      extensions: [".css"],
+      minimize: false,
+      inject: true,
+      extract: false,
+    }),
     typescript({
-      tsconfig: './tsconfig.json',
+      tsconfig: "./tsconfig.json",
       declaration: true,
-      declarationDir: 'dist',
-      exclude: ['**/*.stories.tsx', '**/*.test.tsx', 'node_modules/**'],
-      outDir: 'dist'
+      declarationDir: "dist",
+      exclude: ["**/*.stories.tsx", "**/*.test.tsx", "node_modules/**"],
+      outDir: "dist",
     }),
     terser(),
   ],
-  external: ['react', 'react-dom', '@emotion/react', '@emotion/styled'],
+  external: ["react", "react-dom", "@emotion/react", "@emotion/styled"],
 };

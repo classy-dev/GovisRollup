@@ -1,6 +1,5 @@
-import React, { FC, useMemo, useId, Suspense, lazy } from 'react';
+import React, { useMemo, useId } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
-import Skeleton from 'react-loading-skeleton';
 import {
   components,
   DropdownIndicatorProps,
@@ -9,14 +8,7 @@ import {
 } from 'react-select';
 
 // SelectLibrary 타입 정의
-import ReactSelect, { Props as ReactSelectProps } from 'react-select';
-
-// React.lazy로 동적 임포트 구현
-const SelectLibrary = lazy<typeof ReactSelect>(() => 
-  import('react-select').then(module => ({ 
-    default: module.default 
-  }))
-);
+import ReactSelect from 'react-select';
 
 export interface IOption {
   value: string | number;
@@ -156,26 +148,24 @@ export const Select = ({
   }, [selectedOption, options]);
 
   return (
-    <Suspense fallback={<Skeleton width={200} height="4rem" />}>
-      <SelectLibrary
-        classNames={{
-          control: state => 'select_library_control',
-        }}
-        styles={customStyles}
-        components={{
-          DropdownIndicator,
-          Control: prefixLabel ? CustomControl(prefixLabel) : components.Control,
-        }}
-        options={options}
-        value={computedSelectedOption}
-        onChange={setSelectedOption}
-        placeholder={placeholder || 'Select...'}
-        isClearable={false}
-        isSearchable={isSearchable}
-        isDisabled={isDisabled}
-        formatOptionLabel={customFormatOptionLabel}
-        instanceId={useId()}
-      />
-    </Suspense>
+    <ReactSelect
+      classNames={{
+        control: state => 'select_library_control',
+      }}
+      styles={customStyles}
+      components={{
+        DropdownIndicator,
+        Control: prefixLabel ? CustomControl(prefixLabel) : components.Control,
+      }}
+      options={options}
+      value={computedSelectedOption}
+      onChange={setSelectedOption}
+      placeholder={placeholder || 'Select...'}
+      isClearable={false}
+      isSearchable={isSearchable}
+      isDisabled={isDisabled}
+      formatOptionLabel={customFormatOptionLabel}
+      instanceId={useId()}
+    />
   );
 };

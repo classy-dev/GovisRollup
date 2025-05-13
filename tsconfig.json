@@ -8,7 +8,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "module": "ESNext",
-    "resolveJsonModule": true,    
+    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "declarationDir": "dist",
@@ -23,7 +23,7 @@
       "@ComponentFarm/*": ["./src/components/*"],
       "@ApiFarm/*": ["./src/api/*"],
       "@InterfaceFarm/*": ["./src/interface/*"],
-      "@UtilFarm/*": ["./util/*"],
+      "@UtilFarm/*": ["./src/util/*"],
       "@HookFarm/*": ["./src/hook/*"],
       "@MobxFarm/*": ["./src/mobx/*"]
     }
