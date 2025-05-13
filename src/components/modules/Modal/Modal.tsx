@@ -150,6 +150,8 @@ export const Modal: FC<ModalProps> = ({
   const modalContent = (
     <>
       <DimmedBackground
+        role="presentation"
+        data-testid="dimmed-bg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

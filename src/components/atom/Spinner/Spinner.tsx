@@ -1,21 +1,21 @@
-import React from 'react';
-import * as Loader from 'react-spinners';
-import styled from '@emotion/styled';
+import React from "react";
+import * as Loader from "react-spinners";
+import styled from "@emotion/styled";
 
 type SpinnerVariant =
-  | 'beat'
-  | 'climbing'
-  | 'clock'
-  | 'fade'
-  | 'small'
-  | 'pacman'
-  | 'puff'
-  | 'pulse'
-  | 'ring'
-  | 'scale'
-  | 'sync';
+  | "beat"
+  | "climbing"
+  | "clock"
+  | "fade"
+  | "small"
+  | "pacman"
+  | "puff"
+  | "pulse"
+  | "ring"
+  | "scale"
+  | "sync";
 
-type SpinnerSize = 'xs' | 'sm' | 'md' | 'lg';
+type SpinnerSize = "xs" | "sm" | "md" | "lg";
 
 export interface SpinnerProps {
   variant?: SpinnerVariant;
@@ -36,7 +36,7 @@ const SmallFade = styled.div`
 `;
 
 export const Spinner = ({
-  variant = 'small',
+  variant = "small",
   width,
   height,
   size,
@@ -47,76 +47,86 @@ export const Spinner = ({
 }: SpinnerProps) => {
   return (
     <>
-      {variant === 'small' ? (
+      {variant === "small" ? (
         <SmallFade>
           <Loader.FadeLoader
-            color={color ?? '#36d7b7'}
+            aria-label="loading"
+            color={color ?? "#36d7b7"}
             className="spinner"
             radius={radius ?? 1}
             speedMultiplier={speedMultiplier ?? 1}
           />
         </SmallFade>
-      ) : variant === 'fade' ? (
+      ) : variant === "fade" ? (
         <Loader.FadeLoader
-          color={color ?? '#36d7b7'}
+          aria-label="loading"
+          color={color ?? "#36d7b7"}
           className="spinner"
           width={width ?? 5}
           height={height ?? 15}
           radius={radius ?? 2}
           speedMultiplier={speedMultiplier ?? 1}
         />
-      ) : variant === 'beat' ? (
+      ) : variant === "beat" ? (
         <Loader.BeatLoader
-          color={color ?? '#36d7b7'}
+          aria-label="loading"
+          color={color ?? "#36d7b7"}
           className="spinner"
           size={size ?? 15}
           speedMultiplier={speedMultiplier ?? 1}
         />
-      ) : variant === 'climbing' ? (
+      ) : variant === "climbing" ? (
         <Loader.ClimbingBoxLoader
-          color={color ?? '#36d7b7'}
+          aria-label="loading"
+          color={color ?? "#36d7b7"}
           className="spinner"
           size={size ?? 15}
           speedMultiplier={speedMultiplier ?? 1}
         />
-      ) : variant === 'clock' ? (
+      ) : variant === "clock" ? (
         <Loader.ClockLoader
-          color={color ?? '#36d7b7'}
+          aria-label="loading"
+          color={color ?? "#36d7b7"}
           className="spinner"
           size={size ?? 15}
           speedMultiplier={speedMultiplier ?? 1}
         />
-      ) : variant === 'pacman' ? (
+      ) : variant === "pacman" ? (
         <Loader.PacmanLoader
-          color={color ?? '#36d7b7'}
+          aria-label="loading"
+          color={color ?? "#36d7b7"}
           className="spinner"
           size={size ?? 15}
           speedMultiplier={speedMultiplier ?? 1}
         />
-      ) : variant === 'puff' ? (
+      ) : variant === "puff" ? (
         <Loader.PuffLoader
-          color={color ?? '#36d7b7'}
+          aria-label="loading"
+          color={color ?? "#36d7b7"}
           className="spinner"
           size={size ?? 15}
           speedMultiplier={speedMultiplier ?? 1}
         />
-      ) : variant === 'pulse' ? (
+      ) : variant === "pulse" ? (
         <Loader.PulseLoader
-          color={color ?? '#36d7b7'}
+          aria-label="loading"
+          color={color ?? "#36d7b7"}
           className="spinner"
           size={size ?? 15}
           speedMultiplier={speedMultiplier ?? 1}
         />
-      ) : variant === 'ring' ? (
+      ) : variant === "ring" ? (
         <Loader.RingLoader
-          color={color ?? '#36d7b7'}
+          aria-label="loading"
+          color={color ?? "#36d7b7"}
           className="spinner"
           size={size ?? 15}
           speedMultiplier={speedMultiplier ?? 1}
         />
-      ) : variant === 'scale' ? (
+      ) : variant === "scale" ? (
         <Loader.ScaleLoader
-          color={color ?? '#36d7b7'}
+          aria-label="loading"
+          color={color ?? "#36d7b7"}
           className="spinner"
           width={width ?? 4}
           height={height ?? 35}
@@ -125,7 +135,8 @@ export const Spinner = ({
         />
       ) : (
         <Loader.SyncLoader
-          color={color ?? '#36d7b7'}
+          aria-label="loading"
+          color={color ?? "#36d7b7"}
           className="spinner"
           size={size ?? 15}
           speedMultiplier={speedMultiplier ?? 1}
@@ -206,7 +217,7 @@ export const PageSpinnerWrap = styled.div`
 
 // https://codepen.io/nxworld/pen/zwGpXr
 export const PageSpinner = ({
-  spinnerText = 'Loading',
+  spinnerText = "Loading",
 }: {
   spinnerText?: string;
 }) => {
@@ -214,7 +225,7 @@ export const PageSpinner = ({
     <PageSpinnerWrap>
       <Spinner variant="fade" />
       <div className="loading loading01">
-        {spinnerText.split('').map((char, index) => (
+        {spinnerText.split("").map((char, index) => (
           <span key={index}>{char}</span>
         ))}
       </div>

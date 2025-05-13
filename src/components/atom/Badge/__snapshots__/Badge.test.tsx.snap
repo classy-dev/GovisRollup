@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Badge /> snapshot – type:circle size:sm color:yellow 1`] = `
+<span
+  class="badge css-yb3p5u"
+  color="yellow"
+  fill="fill"
+  type="circle"
+>
+  SNAP
+</span>
+`;
+
+exports[`<Badge /> snapshot – type:new size:sm color:blue 1`] = `
+<span
+  class="badge css-l0ggti"
+  color="blue"
+  fill="fill"
+  type="new"
+>
+  SNAP
+</span>
+`;
+
+exports[`<Badge /> snapshot – type:square size:lg color:red 1`] = `
+<span
+  class="badge css-g8wml2"
+  color="red"
+  fill="fill"
+  type="square"
+>
+  SNAP
+</span>
+`;
+
+exports[`<TextBadge /> snapshot – color:blue 1`] = `
+<div
+  class="css-161ajy2"
+  color="blue"
+>
+  <span>
+    COLOR
+  </span>
+</div>
+`;
+
+exports[`<TextBadge /> snapshot – color:orange 1`] = `
+<div
+  class="css-daa5yw"
+  color="orange"
+>
+  <span>
+    COLOR
+  </span>
+</div>
+`;
+
+exports[`<TextBadge /> snapshot – color:red 1`] = `
+<div
+  class="css-hf9bf9"
+  color="red"
+>
+  <span>
+    COLOR
+  </span>
+</div>
+`;
+
+exports[`<TextBadge /> snapshot – color:yellow 1`] = `
+<div
+  class="css-24nejr"
+  color="yellow"
+>
+  <span>
+    COLOR
+  </span>
+</div>
+`;
+
+exports[`<TimeBadge /> snapshot – 기본 상태 1`] = `
+<span
+  class="badge css-1651hci"
+  color="gray"
+  fill="fill"
+  type="circle"
+>
+  00:00
+</span>
+`;

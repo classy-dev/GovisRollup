@@ -4,14 +4,14 @@ import React, {
   useRef,
   ChangeEvent,
   KeyboardEvent,
-} from 'react';
-import ko from 'date-fns/locale/ko';
-import dayjs from 'dayjs';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { FiCalendar } from 'react-icons/fi';
-import { IcoInput } from '@ComponentFarm/atom/IcoInput/IcoInput';
-import { DateRageBox, DateRangeWrap } from './style';
+} from "react";
+import ko from "date-fns/locale/ko";
+import dayjs from "dayjs";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { FiCalendar } from "react-icons/fi";
+import { IcoInput } from "@ComponentFarm/atom/IcoInput/IcoInput";
+import { DateRageBox, DateRangeWrap } from "./style";
 
 export type DateRangeType = [Date | null, Date | null];
 
@@ -31,10 +31,10 @@ export const DateRangePicker = ({
   placeholder,
   disabled = false,
   maxDate,
-}:DateRangePickerProps) => {
+}: DateRangePickerProps) => {
   const [dateRange, setDateRange] = useState<DateRangeType>(initialDateRange);
-  const [startDateInput, setStartDateInput] = useState<string | null>('');
-  const [endDateInput, setEndDateInput] = useState<string | null>('');
+  const [startDateInput, setStartDateInput] = useState<string | null>("");
+  const [endDateInput, setEndDateInput] = useState<string | null>("");
   const [open, setOpen] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [isResetVisible, setIsResetVisible] = useState(false);
@@ -44,22 +44,22 @@ export const DateRangePicker = ({
   useEffect(() => {
     // URL 쿼리 파라미터로부터 날짜를 설정합니다.
     const start = initialDateRange[0]
-      ? dayjs(initialDateRange[0], 'YYYY-MM-DD').toDate()
+      ? dayjs(initialDateRange[0], "YYYY-MM-DD").toDate()
       : null;
     const end = initialDateRange[1]
-      ? dayjs(initialDateRange[1], 'YYYY-MM-DD').toDate()
+      ? dayjs(initialDateRange[1], "YYYY-MM-DD").toDate()
       : null;
 
     if (start && end) {
-      setStartDateInput(dayjs(start).format('YYYY-MM-DD'));
-      setEndDateInput(dayjs(end).format('YYYY-MM-DD'));
+      setStartDateInput(dayjs(start).format("YYYY-MM-DD"));
+      setEndDateInput(dayjs(end).format("YYYY-MM-DD"));
       setDateRange([start, end]);
     } else if (!start && !end) {
       setStartDateInput(null);
       setEndDateInput(null);
       setDateRange([null, null]);
     }
-  }, [initialDateRange]);
+  }, [initialDateRange?.[0], initialDateRange?.[1]]);
 
   const validateDate = (dateStr: string) => {
     const regex = /^\d{4}-\d{2}-\d{2}$/;
@@ -67,7 +67,7 @@ export const DateRangePicker = ({
       return false;
     }
 
-    const [year, month, day] = dateStr.split('-').map(Number);
+    const [year, month, day] = dateStr.split("-").map(Number);
     if (year < 2000) {
       return false;
     }
@@ -95,7 +95,7 @@ export const DateRangePicker = ({
         oneMonthAfterStartDate.setMonth(oneMonthAfterStartDate.getMonth() + 1); // 변경된 부분
 
         if (endDate > oneMonthAfterStartDate) {
-          setEndDateInput('');
+          setEndDateInput("");
           setDateRange([startDate, null]);
           onDateRangeChange([startDate, null]);
         }
@@ -121,8 +121,8 @@ export const DateRangePicker = ({
         oneMonthLater.setMonth(oneMonthLater.getMonth() + 1);
 
         if (endDate > oneMonthLater) {
-          alert('종료일은 시작일로부터 최대 1개월 이내로 설정해야 합니다.');
-          setEndDateInput('');
+          alert("종료일은 시작일로부터 최대 1개월 이내로 설정해야 합니다.");
+          setEndDateInput("");
 
           return; // 조건을 충족하지 않으면 업데이트 중단
         }
@@ -138,13 +138,13 @@ export const DateRangePicker = ({
   };
 
   const handleStartDateKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && startDateInput && validateDate(startDateInput)) {
+    if (e.key === "Enter" && startDateInput && validateDate(startDateInput)) {
       refEndDate.current?.focus();
     }
   };
 
   const handleEndDateKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && endDateInput && validateDate(endDateInput)) {
+    if (e.key === "Enter" && endDateInput && validateDate(endDateInput)) {
       setOpen(false);
       refEndDate.current?.blur();
     }
@@ -162,10 +162,10 @@ export const DateRangePicker = ({
     ];
     setDateRange(formattedUpdate);
     if (formattedUpdate[0]) {
-      setStartDateInput(dayjs(formattedUpdate[0]).format('YYYY-MM-DD'));
+      setStartDateInput(dayjs(formattedUpdate[0]).format("YYYY-MM-DD"));
     }
     if (formattedUpdate[1]) {
-      setEndDateInput(dayjs(formattedUpdate[1]).format('YYYY-MM-DD'));
+      setEndDateInput(dayjs(formattedUpdate[1]).format("YYYY-MM-DD"));
       setOpen(false);
     }
     onDateRangeChange(formattedUpdate);
@@ -179,24 +179,24 @@ export const DateRangePicker = ({
 
   const handleResetClick = () => {
     setDateRange([null, null]);
-    setStartDateInput('');
-    setEndDateInput('');
+    setStartDateInput("");
+    setEndDateInput("");
     setIsResetVisible(false);
     onDateRangeChange([null, null]);
     // setOpen(false);
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', onClickOutside);
+    document.addEventListener("mousedown", onClickOutside);
     return () => {
-      document.removeEventListener('mousedown', onClickOutside);
+      document.removeEventListener("mousedown", onClickOutside);
     };
   }, []);
 
   const setDateRangeAndUpdateInputs = (range: DateRangeType) => {
     setDateRange(range);
-    setStartDateInput(range[0]?.toISOString().split('T')[0] || '');
-    setEndDateInput(range[1]?.toISOString().split('T')[0] || '');
+    setStartDateInput(range[0]?.toISOString().split("T")[0] || "");
+    setEndDateInput(range[1]?.toISOString().split("T")[0] || "");
     onDateRangeChange(range);
   };
 
@@ -238,7 +238,7 @@ export const DateRangePicker = ({
           value={
             startDateInput && endDateInput
               ? `${startDateInput} - ${endDateInput}`
-              : ''
+              : ""
           }
           placeholder={placeholder}
           onClick={() => setOpen(!open)}
@@ -293,7 +293,7 @@ export const DateRangePicker = ({
                   id="startDate"
                   className="inp"
                   // placeholder="시작일"
-                  value={startDateInput ?? ''}
+                  value={startDateInput ?? ""}
                   onChange={handleStartDateChange}
                   onKeyDown={handleStartDateKeyDown}
                   onFocus={handleFocus}
@@ -309,7 +309,7 @@ export const DateRangePicker = ({
                   id="endDate"
                   className="inp"
                   // placeholder="종료일"
-                  value={endDateInput ?? ''}
+                  value={endDateInput ?? ""}
                   onChange={handleEndDateChange}
                   onKeyDown={handleEndDateKeyDown}
                   onFocus={handleFocus}

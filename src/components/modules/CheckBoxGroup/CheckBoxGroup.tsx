@@ -106,7 +106,7 @@ export const CheckBoxGroup = ({
               checked={isAllSelected}
               chksize={chksize}
               onChange={(e: any) => handleAllChange(e.target.checked)}
-              label=""
+              label={node.props.label ?? "All"}
             />
           );
         }

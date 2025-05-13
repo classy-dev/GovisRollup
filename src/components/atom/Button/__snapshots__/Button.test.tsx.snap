@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> snapshot – %s / %s 1`] = `
+<button
+  class="css-8rp3t8"
+  type="button"
+>
+  <span
+    class="txt"
+  >
+    SNAP
+  </span>
+</button>
+`;
+
+exports[`<Button /> snapshot – %s / %s 2`] = `
+<button
+  class="css-z5osdt"
+  type="button"
+>
+  <span
+    class="txt"
+  >
+    SNAP
+  </span>
+</button>
+`;
+
+exports[`<Button /> snapshot – %s / %s 3`] = `
+<button
+  class="css-1qbi09v"
+  type="button"
+>
+  <span
+    class="txt"
+  >
+    SNAP
+  </span>
+</button>
+`;

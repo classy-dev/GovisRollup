@@ -1,19 +1,19 @@
-import React, { FC, ReactNode } from 'react';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import React, { FC, ReactNode } from "react";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
-type BadgeType = 'square' | 'circle' | 'new';
-type BadgeSize = 'sm' | 'md' | 'lg' | 'circle';
+type BadgeType = "square" | "circle" | "new";
+type BadgeSize = "sm" | "md" | "lg" | "circle";
 export type BadgeColor =
-  | 'green'
-  | 'yellow'
-  | 'indigo'
-  | 'purple'
-  | 'blue'
-  | 'red'
-  | 'gray'
-  | 'orange';
-type BadgeFill = 'fill' | 'outline' | 'transparent';
+  | "green"
+  | "yellow"
+  | "indigo"
+  | "purple"
+  | "blue"
+  | "red"
+  | "gray"
+  | "orange";
+type BadgeFill = "fill" | "outline" | "transparent";
 
 export interface BadgeProps {
   type?: BadgeType;
@@ -127,10 +127,10 @@ const colors = {
 
 const BadgeWrapper = styled.span<BadgeProps>`
   ${badgeBase};
-  ${props => badgeType[props.type || 'circle']};
-  ${props => sizes[props.size || props.type === 'new' ? 'sm' : 'md']};
-  ${props => colors[props.color || 'green']};
-  ${props =>
+  ${(props) => badgeType[props.type || "circle"]};
+  ${(props) => sizes[props.size || props.type === "new" ? "sm" : "md"]};
+  ${(props) => colors[props.color || "green"]};
+  ${(props) =>
     props.dot
       ? `&:before {
     display: inline-block;
@@ -141,20 +141,20 @@ const BadgeWrapper = styled.span<BadgeProps>`
     border-radius: 50%;
     background: currentColor;
   }`
-      : ''}
-  ${props => (props.fill === 'outline' ? 'background:none' : '')}
-  ${props =>
-    props.fill === 'transparent' ? 'border:none;background:none' : ''}
+      : ""}
+  ${(props) => (props.fill === "outline" ? "background:none" : "")}
+  ${(props) =>
+    props.fill === "transparent" ? "border:none;background:none" : ""}
 
-  ${props => !props.hasBorder && 'border:none;font-weight:600;'}
+  ${(props) => !props.hasBorder && "border:none;font-weight:600;"}
 `;
 
 export const Badge: FC<BadgeProps> = ({
-  type = 'circle',
-  size = 'md',
-  color = 'green',
+  type = "circle",
+  size = "md",
+  color = "green",
   dot,
-  fill = 'fill',
+  fill = "fill",
   LeadingIcon,
   TrailingIcon,
   children,
@@ -175,11 +175,11 @@ export const Badge: FC<BadgeProps> = ({
       textWhite={textWhite}
       hasBorder={hasBorder}
       className="badge"
-      onClick={e => onClick?.(e)}
+      onClick={(e) => onClick?.(e)}
     >
       {Leading && <Leading {...(LeadingIcon.props as React.ReactElement)} />}
       {children}
-      {Trailing && <Trailing {...TrailingIcon.props as React.ReactElement} />}
+      {Trailing && <Trailing {...(TrailingIcon.props as React.ReactElement)} />}
     </BadgeWrapper>
   );
 };
