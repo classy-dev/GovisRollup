@@ -1,5 +1,5 @@
 {
-  "name": "gopizza-design-system",
+  "name": "@classy-dev/gopizza-design-system",
   "version": "1.0.0",
   "description": "Component library built with Rollup",
   "main": "dist/index.js",
@@ -15,7 +15,17 @@
     "build-storybook": "storybook build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "svg-to-base64": "node scripts/svg-to-base64.js"
+    "svg-to-base64": "node scripts/svg-to-base64.js",
+    "prepublishOnly": "npm run build",
+    "publish:github": "npm publish"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/classy-dev/GovisRollup.git"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.13.5",
