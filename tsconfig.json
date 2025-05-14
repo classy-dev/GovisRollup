@@ -25,7 +25,8 @@
       "@InterfaceFarm/*": ["./src/interface/*"],
       "@UtilFarm/*": ["./src/util/*"],
       "@HookFarm/*": ["./src/hook/*"],
-      "@MobxFarm/*": ["./src/mobx/*"]
+      "@MobxFarm/*": ["./src/mobx/*"],
+      "@svg/*": ["./src/public/images/constants/*"]
     }
   },
   "include": [
@@ -35,5 +36,5 @@
     "component/chart/BarCharts.stories.tsx",
     "component/modal/mailSendPopup.stories.bak"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }

@@ -38,7 +38,9 @@ const config: StorybookConfig = {
       "@InterfaceFarm": path.resolve(__dirname, "../src/interface"),
       "@InterfaceFarm/*": path.resolve(__dirname, "../src/interface/*"),
       "@MobxFarm": path.resolve(__dirname, "../src/mobx"),
-      "@MobxFarm/*": path.resolve(__dirname, "../src/mobx/*")
+      "@MobxFarm/*": path.resolve(__dirname, "../src/mobx/*"),
+      "@svg": path.resolve(__dirname, "../src/public/images/constants"),
+      "@svg/*": path.resolve(__dirname, "../src/public/images/constants/*"),
     };
 
     // Babel loader 추가

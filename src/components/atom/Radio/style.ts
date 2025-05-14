@@ -1,20 +1,21 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
+import { SVG_BASE64 } from "@svg/svg-base64";
 
-export type CheckBoxSize = 'sm' | 'md';
+export type CheckBoxSize = "sm" | "md";
 
 export const sizes = {
-  sm: '1.6rem',
-  md: '2.4rem',
+  sm: "1.6rem",
+  md: "2.4rem",
 };
 
 export const LabelFontSize = {
-  sm: '1.4rem',
-  md: '1.6rem',
+  sm: "1.4rem",
+  md: "1.6rem",
 };
 
 export const LineHeight = {
-  sm: '2rem',
-  md: '2.4rem',
+  sm: "2rem",
+  md: "2.4rem",
 };
 
 export const Label = styled.label<{ chksize?: CheckBoxSize }>`
@@ -35,22 +36,22 @@ export const Label = styled.label<{ chksize?: CheckBoxSize }>`
 
     .title {
       color: var(--color-neutral10);
-      font-size: ${props => LabelFontSize[props.chksize || 'md']};
+      font-size: ${(props) => LabelFontSize[props.chksize || "md"]};
       font-weight: 500;
-      line-height: ${props => LineHeight[props.chksize || 'md']};
+      line-height: ${(props) => LineHeight[props.chksize || "md"]};
     }
     .sub-text {
       color: var(--color-neutral50);
-      font-size: ${props => LabelFontSize[props.chksize || 'md']};
+      font-size: ${(props) => LabelFontSize[props.chksize || "md"]};
       font-weight: 400;
-      line-height: ${props => LineHeight[props.chksize || 'md']};
+      line-height: ${(props) => LineHeight[props.chksize || "md"]};
     }
   }
 `;
 
 export const RadioWrap = styled.input<{ chksize?: CheckBoxSize }>`
-  width: ${props => sizes[props.chksize || 'md']};
-  height: ${props => sizes[props.chksize || 'md']};
+  width: ${(props) => sizes[props.chksize || "md"]};
+  height: ${(props) => sizes[props.chksize || "md"]};
   background: #fff no-repeat 50% / contain;
   border: 1px solid var(--input-checkBoxBorder);
   /* margin-top: 0.25em;
@@ -62,14 +63,14 @@ export const RadioWrap = styled.input<{ chksize?: CheckBoxSize }>`
   &:checked {
     border: 1px solid var(--input-checkBoxCheckedBorder);
     background-color: var(--bg-inputRadio);
-    background-image: url('/images/common/ico_radio.svg');
+    background-image: url(${SVG_BASE64.ico_radio});
   }
 
   &.readonly {
     border: 1px solid var(--input-checkBoxReadOnlyBorder);
     background-color: var(--bg-inputCheckBoxReadOnly);
     &:checked {
-      background-image: url('/images/common/ico_radio_disabled.svg');
+      background-image: url(${SVG_BASE64.ico_radio_disabled});
     }
     pointer-events: none;
   }
@@ -78,7 +79,7 @@ export const RadioWrap = styled.input<{ chksize?: CheckBoxSize }>`
     border: 1px solid var(--input-checkBoxDisabeldBorder);
     background-color: var(--bg-inputCheckBoxDisabled);
     &:checked {
-      background-image: url('/images/common/ico_radio_disabled.svg');
+      background-image: url(${SVG_BASE64.ico_radio_disabled});
     }
     pointer-events: none;
 

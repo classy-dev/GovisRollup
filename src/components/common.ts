@@ -18,6 +18,7 @@ import {
   DateInputWrapper,
   datepickerGlobalStyle,
 } from "./modules/DatePicker/style";
+import { SVG_BASE64 } from "@svg/svg-base64";
 
 export const breakpoints = [200, 767, 800, 1200, 1600];
 export const mq = breakpoints.map(
@@ -361,7 +362,7 @@ const resetDefault = css`
   select {
     padding: 0.8rem 1.2rem;
     appearance: none;
-    background: url("/images/common/ico_sel_arrow.svg") no-repeat #fff
+    background: url(${SVG_BASE64.ico_sel_arrow}) no-repeat #fff
       calc(100% - 12px) 50%;
   }
 
@@ -452,8 +453,7 @@ const resetDefault = css`
       content: "";
       width: 1.6rem;
       height: 1.6rem;
-      background: url("/images/common/arrow_right.svg") no-repeat left center /
-        1.6rem;
+      background: url(${SVG_BASE64.arrow_right}) no-repeat left center / 1.6rem;
     }
   }
 

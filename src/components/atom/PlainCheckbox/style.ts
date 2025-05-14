@@ -1,15 +1,16 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
+import { SVG_BASE64 } from "@svg/svg-base64";
 
-export type CheckBoxSize = 'sm' | 'md';
+export type CheckBoxSize = "sm" | "md";
 
 export const sizes = {
-  sm: '1.6rem',
-  md: '2.4rem',
+  sm: "1.6rem",
+  md: "2.4rem",
 };
 
 export const CheckBoxWrap = styled.input<{ chksize?: CheckBoxSize }>`
-  width: ${props => sizes[props.chksize || 'md']};
-  height: ${props => sizes[props.chksize || 'md']};
+  width: ${(props) => sizes[props.chksize || "md"]};
+  height: ${(props) => sizes[props.chksize || "md"]};
   /* margin-top: 0.25em;
   vertical-align: top; */
   background: #fff no-repeat 50% / contain;
@@ -21,14 +22,14 @@ export const CheckBoxWrap = styled.input<{ chksize?: CheckBoxSize }>`
   &:checked {
     border: 1px solid var(--input-checkBoxCheckedBorder);
     background-color: var(--bg-inputCheckBox);
-    background-image: url('/images/common/ico_checkbox.svg');
+    background-image: url(${SVG_BASE64.ico_checkbox});
   }
 
   &.readonly {
     border: 1px solid var(--input-checkBoxReadOnlyBorder);
     background-color: var(--bg-inputCheckBoxReadOnly);
     &:checked {
-      background-image: url('/images/common/ico_checkbox_disabled.svg');
+      background-image: url(${SVG_BASE64.ico_checkbox_disabled});
     }
     pointer-events: none;
   }
@@ -37,7 +38,7 @@ export const CheckBoxWrap = styled.input<{ chksize?: CheckBoxSize }>`
     border: 1px solid var(--input-checkBoxDisabeldBorder);
     background-color: var(--bg-inputCheckBoxDisabled);
     &:checked {
-      background-image: url('/images/common/ico_checkbox_disabled.svg');
+      background-image: url(${SVG_BASE64.ico_checkbox_disabled});
     }
     pointer-events: none;
 

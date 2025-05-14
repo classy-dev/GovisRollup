@@ -13,7 +13,27 @@ const svgs = svgsContext
   .reduce((acc, filename) => {
     const svgModule = svgsContext(filename);
     const key = filename.replace('./', '').replace('.tsx', '');
-    acc[key] = svgModule.default;
+    
+    // export default와 export 둘 다 처리
+    let Component;
+    
+    if (svgModule.default) {
+      // export default로 내보낸 경우
+      Component = svgModule.default;
+    } else {
+      // 이름이 있는 export로 내보낸 경우 - 첫 번째 값 사용
+      // 파일 이름과 같은 이름의 export를 찾음
+      const componentName = key.split('/').pop();
+      Component = svgModule[componentName] || Object.values(svgModule)[0];
+    }
+    
+    // 컴포넌트가 있는 경우만 추가
+    if (Component) {
+      // displayName 설정
+      Component.displayName = key;
+      acc[key] = Component;
+    }
+    
     return acc;
   }, {});
 
@@ -44,10 +64,10 @@ const SVGDisplay: Story<any> = ({ ...args }) => (
       }
     `}
   >
-    {Object.values(svgs).map((SVGComponent, index) => (
-      <div key={SVGComponent.name} className="box_icon">
+    {Object.entries(svgs).map(([key, SVGComponent], index) => (
+      <div key={key} className="box_icon">
         <SVGComponent {...args} />
-        <p>{SVGComponent.name}</p>
+        <p>{SVGComponent.displayName || key}</p>
       </div>
     ))}
   </StoryLayout>
