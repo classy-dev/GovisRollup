@@ -1,7 +1,42 @@
 # GOVIS UI 컴포넌트 라이브러리
 
 <div align="center">
-  <img src="./src/public/images/mock/thumb.png" alt="GOVIS Design System" width="400" />
+  <table>
+    <tr>
+      <td align="center" width="120">
+        <a href="https://rollupjs.org/">
+          <img src="https://rollupjs.org/rollup-logo.svg" alt="Rollup" width="80" />
+          <br />
+          <b>Rollup</b>
+        </a>
+      </td>
+      <td align="center" width="120">
+        <a href="https://storybook.js.org/">
+          <img src="https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png" alt="Storybook" width="80" />
+          <br />
+          <b>Storybook</b>
+        </a>
+      </td>
+      <td align="center" width="120">
+        <a href="https://jestjs.io/">
+          <img src="https://jestjs.io/img/jest.png" alt="Jest" width="80" />
+          <br />
+          <b>Jest</b>
+        </a>
+      </td>
+      <td align="center" width="120">
+        <a href="https://testing-library.com/">
+          <img src="https://testing-library.com/img/logo-large.png" alt="Testing Library" width="80" />
+          <br />
+          <b>Testing Library</b>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div align="center">
+  <p>고피자 UI 컴포넌트를 위한 모듈화된 라이브러리</p>
 </div>
 
 ## 개요
@@ -56,7 +91,8 @@ GovisRollup/
 
 1. **유닛 테스트**: 개별 컴포넌트의 기능 테스트
 2. **스냅샷 테스트**: UI 변경 사항 감지
-3. **인터랙션 테스트**: 사용자 상호작용 시뮬레이션
+3. **인터랙션 테스트**: 스토리북을 통한 사용자 상호작용 시뮬레이션
+   ab
 
 ## 설치 방법
 
